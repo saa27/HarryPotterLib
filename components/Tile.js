@@ -4,9 +4,9 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 const Tile = (props) => {
     return (
         <View style={styles.cont}>
-            <Text style={styles.title}>Harry Potter</Text>
+            <Text style={styles.title}>{props.name}</Text>
             <Image
-                source={require('../assets/images/small/harrypottersmall.png')}
+                source={props.imageUrl}
                 style={styles.img}
             />
         </View>
@@ -15,7 +15,7 @@ const Tile = (props) => {
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: '600',
     },
     cont: {
@@ -25,11 +25,13 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         padding: 5,
         paddingHorizontal: 25,
-        backgroundColor: '#0a9396'
+        backgroundColor: '#0a9396',
+        marginBottom: 20
     },
     img: {
         width: 130,
         height: 110,
+        resizeMode: 'contain'
     },
 });
 
