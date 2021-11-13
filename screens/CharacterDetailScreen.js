@@ -13,16 +13,21 @@ const CharacterDetailsScreen = (props) => {
             style={{
                 flex: 1,
                 alignItems: 'center',
-                justifyContent: 'center',
+                // justifyContent: 'center',
                 backgroundColor: `${post.bg}`,
             }}
         >
-            <SharedElement id={post.id}>
-                <Image
-                    source={{ uri: post.image }}
-                    style={styles.harrypotter}
-                />
-            </SharedElement>
+            <View style={{ marginTop: 30 }}>
+                <SharedElement id={post.id}>
+                    <Image
+                        source={{ uri: post.image }}
+                        style={styles.harrypotter}
+                    />
+                </SharedElement>
+            </View>
+            <View style={styles.detailsCont}>
+                <Text style={styles.name}>{post.name}</Text>
+            </View>
             {/* <Text>{character.name}</Text> */}
         </View>
     );
@@ -38,6 +43,20 @@ const styles = StyleSheet.create({
         height: 110 * 2,
         width: 130 * 2,
         resizeMode: 'contain',
+    },
+    detailsCont: {
+        marginTop: 40,
+        height: 500,
+        backgroundColor: 'white',
+        borderTopRightRadius: 50,
+        borderTopLeftRadius: 50,
+        width: '100%',
+        // justifyContent: 'center',
+        alignItems: 'center',
+    },
+    name: {
+        fontFamily: 'Parry',
+        fontSize: 40
     },
 });
 

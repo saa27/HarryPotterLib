@@ -7,6 +7,7 @@ import {
     Dimensions,
     TouchableNativeFeedback,
     FlatList,
+    ImageBackground,
 } from 'react-native';
 import { SharedElement } from 'react-navigation-shared-element/build/v4';
 import Tile from '../components/Tile';
@@ -34,17 +35,22 @@ const LibraryScreen = (props) => {
 
     return (
         <View style={styles.topContainer}>
-            <Image
-                source={require('../assets/images/hplogo.png')}
-                style={styles.hplogo}
-            />
-            <View style={styles.container}>
-                <FlatList
-                    data={CHARACTERS}
-                    keyExtractor={(item, index) => item.id.toString()}
-                    renderItem={renderCharacterItem}
+            <ImageBackground
+                source={require('../assets/images/big/bg.png')}
+                style={{ height: '100%', width: '100%' }}
+            >
+                <Image
+                    source={require('../assets/images/hplogo.png')}
+                    style={styles.hplogo}
                 />
-            </View>
+                <View style={styles.container}>
+                    <FlatList
+                        data={CHARACTERS}
+                        keyExtractor={(item, index) => item.id.toString()}
+                        renderItem={renderCharacterItem}
+                    />
+                </View>
+            </ImageBackground>
         </View>
     );
 };
