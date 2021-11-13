@@ -8,6 +8,7 @@ import {
     TouchableNativeFeedback,
 } from 'react-native';
 import { SharedElement } from 'react-navigation-shared-element/build/v4';
+import Tile from '../components/Tile';
 
 const { height, width } = Dimensions.get('window');
 
@@ -19,7 +20,7 @@ const LibraryScreen = (props) => {
                 style={styles.hplogo}
             />
             <View style={styles.container}>
-                <TouchableNativeFeedback
+                {/* <TouchableNativeFeedback
                     onPress={() => {
                         props.navigation.push('Detail', {
                             id: '1',
@@ -32,7 +33,8 @@ const LibraryScreen = (props) => {
                             style={styles.harrypotter}
                         />
                     </SharedElement>
-                </TouchableNativeFeedback>
+                </TouchableNativeFeedback> */}
+                <Tile />
             </View>
         </View>
     );
@@ -40,10 +42,13 @@ const LibraryScreen = (props) => {
 
 const styles = StyleSheet.create({
     topContainer: {
-        paddingTop: 5,
+        flex: 1,
+        paddingTop: 15,
+        backgroundColor: 'black',
     },
     container: {
-        margin: 20,
+        marginVertical: 30,
+        marginHorizontal: 10,
     },
     hplogo: {
         width: width,

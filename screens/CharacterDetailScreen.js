@@ -25,8 +25,8 @@ CharacterDetailsScreen.sharedElements = (route) => {
 
 const styles = StyleSheet.create({
     harrypotter: {
-        height: 90*2,
-        width: 110*2,
+        height: 110*2,
+        width: 130*2,
     },
 });
 
