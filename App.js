@@ -2,20 +2,20 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import LibraryScreen from './screens/LibraryScreen';
+import HarryPotterNavigator from './navigation/HarryPotterNavigator';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <LibraryScreen />
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <StatusBar hidden />
+            <HarryPotterNavigator />
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
 });

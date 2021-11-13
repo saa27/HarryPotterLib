@@ -5,12 +5,12 @@ import {
     Text,
     StyleSheet,
     Dimensions,
-    Pressable,
+    TouchableNativeFeedback,
 } from 'react-native';
 
 const { height, width } = Dimensions.get('window');
 
-const LibraryScreen = () => {
+const LibraryScreen = (props) => {
     return (
         <View style={styles.topContainer}>
             <Image
@@ -18,12 +18,16 @@ const LibraryScreen = () => {
                 style={styles.hplogo}
             />
             <View style={styles.container}>
-                <Pressable>
+                <TouchableNativeFeedback
+                    onPress={() => {
+                        props.navigation.navigate('Detail');
+                    }}
+                >
                     <Image
                         source={require('../assets/images/small/harrypottersmall.png')}
                         style={styles.harrypotter}
                     />
-                </Pressable>
+                </TouchableNativeFeedback>
             </View>
         </View>
     );
