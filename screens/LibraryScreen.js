@@ -7,6 +7,7 @@ import {
     Dimensions,
     TouchableNativeFeedback,
 } from 'react-native';
+import { SharedElement } from 'react-navigation-shared-element/build/v4';
 
 const { height, width } = Dimensions.get('window');
 
@@ -20,13 +21,17 @@ const LibraryScreen = (props) => {
             <View style={styles.container}>
                 <TouchableNativeFeedback
                     onPress={() => {
-                        props.navigation.navigate('Detail');
+                        props.navigation.push('Detail', {
+                            id: '1',
+                        });
                     }}
                 >
-                    <Image
-                        source={require('../assets/images/small/harrypottersmall.png')}
-                        style={styles.harrypotter}
-                    />
+                    <SharedElement id={'1'}>
+                        <Image
+                            source={require('../assets/images/small/harrypottersmall.png')}
+                            style={styles.harrypotter}
+                        />
+                    </SharedElement>
                 </TouchableNativeFeedback>
             </View>
         </View>

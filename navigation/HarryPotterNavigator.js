@@ -1,10 +1,10 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element/build/v4'
 
 import LibraryScreen from '../screens/LibraryScreen';
 import CharacterDetailsScreen from '../screens/CharacterDetailScreen';
 
-const HarryPotterNavigator = createStackNavigator(
+const HarryPotterNavigator = createSharedElementStackNavigator(
     {
         Library: LibraryScreen,
         Detail: CharacterDetailsScreen,
