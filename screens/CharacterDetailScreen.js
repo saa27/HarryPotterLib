@@ -1,32 +1,43 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
 import { SharedElement } from 'react-navigation-shared-element/build/v4';
+import { CHARACTERS } from '../data';
 
 const CharacterDetailsScreen = (props) => {
-    const id = props.navigation.getParam('id');
+    const post = props.navigation.getParam('post');
+
+    // const character = CHARACTERS.find((character) => character.id === id);
+
     return (
         <View
-            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+            style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: `${post.bg}`,
+            }}
         >
-            <SharedElement id={id}>
+            <SharedElement id={post.id}>
                 <Image
-                    source={require('../assets/images/small/harrypottersmall.png')}
+                    source={{ uri: post.image }}
                     style={styles.harrypotter}
                 />
             </SharedElement>
+            {/* <Text>{character.name}</Text> */}
         </View>
     );
 };
 
 CharacterDetailsScreen.sharedElements = (route) => {
-    const item = route.params.id;
+    const item = route.params.post.id;
     return [item];
 };
 
 const styles = StyleSheet.create({
     harrypotter: {
-        height: 110*2,
-        width: 130*2,
+        height: 110 * 2,
+        width: 130 * 2,
+        resizeMode: 'contain',
     },
 });
 

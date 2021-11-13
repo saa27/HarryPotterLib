@@ -17,7 +17,19 @@ const { height, width } = Dimensions.get('window');
 
 const LibraryScreen = (props) => {
     const renderCharacterItem = ({ item, index }) => {
-        return <Tile name={item.name} imageUrl={item.image} />;
+        return (
+            <Tile
+                id={item.id}
+                name={item.name}
+                imageUrl={item.image}
+                bg={item.bg}
+                onSelect={() => {
+                    props.navigation.push('Detail', {
+                        post: item,
+                    });
+                }}
+            />
+        );
     };
 
     return (
@@ -27,23 +39,9 @@ const LibraryScreen = (props) => {
                 style={styles.hplogo}
             />
             <View style={styles.container}>
-                {/* <TouchableNativeFeedback
-                    onPress={() => {
-                        props.navigation.push('Detail', {
-                            id: '1',
-                        });
-                    }}
-                >
-                    <SharedElement id={'1'}>
-                        <Image
-                            source={require('../assets/images/small/harrypottersmall.png')}
-                            style={styles.harrypotter}
-                        />
-                    </SharedElement>
-                </TouchableNativeFeedback> */}
                 <FlatList
                     data={CHARACTERS}
-                    keyExtractor={(item, index) => item.id}
+                    keyExtractor={(item, index) => item.id.toString()}
                     renderItem={renderCharacterItem}
                 />
             </View>
@@ -60,7 +58,7 @@ const styles = StyleSheet.create({
     container: {
         marginVertical: 30,
         marginHorizontal: 10,
-        marginBottom: 150
+        marginBottom: 150,
     },
     hplogo: {
         width: width,
