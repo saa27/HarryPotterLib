@@ -6,14 +6,11 @@ import { CHARACTERS } from '../data';
 const CharacterDetailsScreen = (props) => {
     const post = props.navigation.getParam('post');
 
-    // const character = CHARACTERS.find((character) => character.id === id);
-
     return (
         <View
             style={{
                 flex: 1,
                 alignItems: 'center',
-                // justifyContent: 'center',
                 backgroundColor: `${post.bg}`,
             }}
         >
@@ -26,9 +23,26 @@ const CharacterDetailsScreen = (props) => {
                 </SharedElement>
             </View>
             <View style={styles.detailsCont}>
-                <Text style={styles.name}>{post.name}</Text>
+                <View style={styles.nameCont}>
+                    <Text style={styles.name}>{post.name}</Text>
+                </View>
+                <View style={styles.bioCont}>
+                    <View style={styles.headingCont}>
+                        <Text style={styles.heading}>⚡ House:</Text>
+                        <Text style={styles.heading}>⚡ Species:</Text>
+                        <Text style={styles.heading}>⚡ Ancestry:</Text>
+                        <Text style={styles.heading}>⚡ Actor:</Text>
+                        <Text style={styles.heading}>⚡ Date of Birth:</Text>
+                    </View>
+                    <View style={styles.valueCont}>
+                        <Text style={styles.value}>{post.house}</Text>
+                        <Text style={styles.value}>{post.species}</Text>
+                        <Text style={styles.value}>{post.ancestry}</Text>
+                        <Text style={styles.value}>{post.actor}</Text>
+                        <Text style={styles.value}>{post.dateOfBirth}</Text>
+                    </View>
+                </View>
             </View>
-            {/* <Text>{character.name}</Text> */}
         </View>
     );
 };
@@ -51,13 +65,27 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 50,
         borderTopLeftRadius: 50,
         width: '100%',
-        // justifyContent: 'center',
+    },
+    nameCont: {
+        marginTop: 20,
         alignItems: 'center',
     },
     name: {
         fontFamily: 'Parry',
-        fontSize: 40
+        fontSize: 40,
     },
+    bioCont: {
+        marginTop: 30,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+    },
+    heading: {
+        fontWeight: 'bold',
+        fontSize: 20
+    },
+    value: {
+        fontSize: 20
+    }
 });
 
 export default CharacterDetailsScreen;
